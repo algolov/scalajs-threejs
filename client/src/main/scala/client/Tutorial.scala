@@ -28,9 +28,9 @@ object Tutorial {
     scene.add(axes)
     
     val planeGeometry = new PlaneGeometry(60, 20, 1, 1)
-    val planeMaterial = new MeshBasicMaterial(js.Dynamic.literal(
+    val planeMaterial = new MeshLambertMaterial(js.Dynamic.literal(
       color = new Color().setHex(0xcccccc)
-    ).asInstanceOf[MeshBasicMaterialParameters])
+    ).asInstanceOf[MeshLambertMaterialParameters])
     
     val plane = new Mesh(planeGeometry, planeMaterial)
     
@@ -42,10 +42,9 @@ object Tutorial {
     
     val boxGeometry = new BoxGeometry(4, 4, 4)
     
-    val material = new MeshBasicMaterial(js.Dynamic.literal(
-      color = new Color().setHex(0xff0000),
-      wireframe = true
-    ).asInstanceOf[MeshBasicMaterialParameters])
+    val material = new MeshLambertMaterial(js.Dynamic.literal(
+      color = new Color().setHex(0xff0000)
+    ).asInstanceOf[MeshLambertMaterialParameters])
     
     val cube = new Mesh( boxGeometry, material )
     
@@ -55,10 +54,9 @@ object Tutorial {
     
     
     val sphereGeometry = new SphereGeometry(4, 20, 20)
-    val sphereMaterial = new MeshBasicMaterial(js.Dynamic.literal(
-      color = new Color().setHex(0x7777ff),
-      wireframe = true
-    ).asInstanceOf[MeshBasicMaterialParameters])
+    val sphereMaterial = new MeshLambertMaterial(js.Dynamic.literal(
+      color = new Color().setHex(0x7777ff)
+    ).asInstanceOf[MeshLambertMaterialParameters])
     
     val sphere = new Mesh(sphereGeometry, sphereMaterial)
     
