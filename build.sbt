@@ -9,7 +9,7 @@ lazy val sharedSettings = Seq(
     , "com.lihaoyi" %%% "upickle" % "0.2.5"
     , "com.lihaoyi" %%% "autowire" % "0.2.3"
   ),
-  scalaVersion := "2.11.4",
+  scalaVersion := "2.11.5",
   scalacOptions ++= Seq("-deprecation", "-feature")
 )
 
@@ -21,16 +21,9 @@ lazy val client = project.in(file("client"))
     resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases"),
     libraryDependencies ++= Seq(
         "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6"
-      , "com.github.japgolly.scalajs-react" %%% "core" % "0.7.0"
-      // , "com.github.japgolly.scalajs-react" %%% "test" % "0.7.0" % "test"
-      // , "com.github.japgolly.scalajs-react" %%% "ext-scalaz71" % "0.7.0"
-      // , "com.github.japgolly.scalajs-react" %%% "ext-monocle" % "0.7.0"
-      , "com.github.japgolly.scalajs-react" %%% "extra" % "0.7.0"
       , "org.scalajs" %%% "threejs" % "0.0.68-0.1.1"
     ),
     ScalaJSKeys.jsDependencies ++= Seq(
-      "org.webjars" % "react" % "0.12.1" / "react-with-addons.js" commonJSName "React",
-      "org.webjars" % "showdown" % "0.3.1" / "showdown.js" commonJSName "Showdown",
       "org.webjars" % "three.js" % "r68" / "three.js" commonJSName "Three",
       scala.scalajs.sbtplugin.RuntimeDOM),
     // creates single js resource file for easy integration in html page
