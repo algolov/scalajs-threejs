@@ -30,16 +30,26 @@ object HttpServer extends App {
 
   val materializedMap = binding startHandlingWith {
     get {
-      path("threejs") {
+      path("") {
         complete {
           HttpEntity (
             MediaTypes.`text/html`,
             Page.htmlContent("Threejs")
           )
         }
-      } ~
-      getFromResourceDirectory("")
-    }
+      }
+    } ~
+    get {
+      path("tutorial") {
+        complete {
+          HttpEntity (
+            MediaTypes.`text/html`,
+            Page.htmlContent("Tutorial")
+          )
+        }
+      }
+    }  ~
+    getFromResourceDirectory("")
   }
 
   println(s"Server online at http://localhost:8080/\nPress RETURN to stop...")
