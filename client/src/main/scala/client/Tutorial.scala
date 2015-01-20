@@ -70,6 +70,10 @@ object Tutorial {
               
     camera.lookAt(scene.position)
     
+    val spotLight = new SpotLight(0xffffff)
+    spotLight.position.set(-40, 60, -10)
+    scene.add(spotLight)
+    
     document.body.appendChild( renderer.domElement )     
       
     renderer.render( scene, camera )
