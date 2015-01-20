@@ -75,8 +75,26 @@ object Tutorial {
     
     scene.add(spotLight)
     
-    document.body.appendChild( renderer.domElement )     
+    var step = 0.0
+    
+    def renderScene(d: Double): Unit = {
       
-    renderer.render( scene, camera )
+      cube.rotation.x += 0.02
+      cube.rotation.y += 0.02
+      cube.rotation.z += 0.02
+            
+      step += 0.04
+      
+      sphere.position.x = 20 + ( 10 * math.cos(step) )
+      sphere.position.y = 2  + ( 10 * math.abs(Math.sin(step)) )
+      
+      dom.requestAnimationFrame( renderScene _ )
+      renderer.render( scene, camera )
+    }
+    
+    document.body.appendChild( renderer.domElement )
+    
+    renderScene(0)
+    
   }
 }
