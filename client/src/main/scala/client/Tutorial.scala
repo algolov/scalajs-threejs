@@ -20,8 +20,9 @@ object Tutorial {
     
     val renderer = new WebGLRenderer
     
-    renderer.setClearColor(new Color().setHex(0xEEEEEE), 0)
+    renderer.setClearColor(new Color().setHex(0xEEEEEE), 1)
     renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.shadowMapEnabled = true
     
     val axes = new AxisHelper(20)
     
@@ -35,8 +36,8 @@ object Tutorial {
     val plane = new Mesh(planeGeometry, planeMaterial)
     
     plane.rotation.x = -0.5 * Math.PI
-    
     plane.position.set(15, 0, 0)
+    plane.receiveShadow = true
     
     scene.add(plane)
     
@@ -49,6 +50,7 @@ object Tutorial {
     val cube = new Mesh( boxGeometry, material )
     
     cube.position.set(-4, 3, 0)
+    cube.castShadow = true
            
     scene.add(cube)
     
@@ -58,18 +60,19 @@ object Tutorial {
       color = new Color().setHex(0x7777ff)
     ).asInstanceOf[MeshLambertMaterialParameters])
     
-    val sphere = new Mesh(sphereGeometry, sphereMaterial)
-    
+    val sphere = new Mesh(sphereGeometry, sphereMaterial)    
     sphere.position.set(20, 4, 2)
+    sphere.castShadow = true
     
     scene.add( sphere )
     
     camera.position.set(-30, 40, 30)
-              
     camera.lookAt(scene.position)
     
     val spotLight = new SpotLight(0xffffff)
     spotLight.position.set(-40, 60, -10)
+    spotLight.castShadow = true
+    
     scene.add(spotLight)
     
     document.body.appendChild( renderer.domElement )     
